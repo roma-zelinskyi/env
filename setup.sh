@@ -17,4 +17,10 @@ fi
 
 echo "${OS} ${DIST}(${RELEASE})"
 
+# Install python as prerequisites for some packages. NVim requires those packages 
+# for python modules.
+if [ "$DIST" = "Ubuntu" ]; then
+    apt-get install --yes python-dev python-pip python3-dev python3-pip
+fi
+
 ./neovim/setup.sh

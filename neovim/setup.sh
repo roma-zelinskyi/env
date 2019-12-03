@@ -8,8 +8,6 @@ function debian_based_setup {
     apt-get --yes update
     apt-get install --yes neovim
 
-    apt-get install --yes python-dev python-pip python3-dev python3-pip
-
     if (( $(echo "$RELEASE < 18.04" |bc -l) )); then
         apt-get install --yes python-software-properties
         apt-get install --yes python3-setuptools
