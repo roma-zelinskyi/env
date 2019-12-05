@@ -1,4 +1,11 @@
 #!/bin/bash
+## title         : setup.sh
+## description   : Installs neovim text editor, and performing its configuration
+## author        : Roman Zelinskyi
+## version       : 0.1
+## usage         : bash setup.sh
+## bash_version  : 4.4.20(1)-release
+#===================================================================================
 
 # Installation for Debian based OS using apt-get package manager
 function debian_based_setup {
