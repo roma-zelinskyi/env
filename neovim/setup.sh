@@ -28,3 +28,7 @@ if [ "$DIST" = "Ubuntu" ]; then
     debian_based_setup
 fi
 
+# Copy configuration files to $HOME/.config/nvim/
+mkdir -p $HOME/.config/nvim
+cp -v ./neovim/config/* $HOME/.config/nvim/
+
