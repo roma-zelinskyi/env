@@ -5,6 +5,17 @@
 " General configurations options
 " All following configurations work for Vim and NeoVim
 
+" Enable persistant undo and redo 
+if has('persistent_undo')
+    let undo_dir = '/tmp/vim_undo' " Create dirs
+    call system('mkdir ' . undo_dir)
+    let &undodir = undo_dir
+    set undofile
+endif
+
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%101v.\+/
+
 set hidden
 
 " disable keeping backup files after successful write.
