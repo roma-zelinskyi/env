@@ -9,6 +9,7 @@
 
 # Installation for Debian based OS using apt-get package manager
 function debian_based_setup {
+    # NeoVim installation step
     apt-get install --yes software-properties-common
 
     add-apt-repository --yes ppa:neovim-ppa/stable
@@ -22,13 +23,19 @@ function debian_based_setup {
     fi
 
     update-alternatives --install `which vim` vim `which nvim` 60
+
+    # Install VimPlug plugin manager
+    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 }
 
 if [ "$DIST" = "Ubuntu" ]; then
     debian_based_setup
 fi
 
-# Copy configuration files to $HOME/.config/nvim/
+# Copy NeoVim configuration files to $HOME/.config/nvim/
 mkdir -p $HOME/.config/nvim
 cp -v ./neovim/config/* $HOME/.config/nvim/
 
+# Run plugin instalation
+vim +'PlugInstall --sync' +qall &> /dev/null
