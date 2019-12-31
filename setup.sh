@@ -7,6 +7,24 @@
 ## bash_version  : 4.4.20(1)-release
 #===================================================================================
 
+
+function find_logged_user() {
+    thisPID=$$
+    origUser=`whoami`
+    thisUser=$origUser
+
+    while [ "$thisUser" = "$origUser" ]
+    do
+        ARR=(`ps h -p$thisPID -ouser,ppid;`)
+        thisUser="${ARR[0]}"
+        myPPid="${ARR[1]}"
+        thisPID=$myPPid
+    done
+
+    getent passwd "$thisUser" | cut -d: -f1
+}
+
+export LOGGED_USER=$(find_logged_user)
 export OS=`uname -s`
 
 if [ "${OS}" = "Linux" ] ; then
