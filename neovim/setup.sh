@@ -24,18 +24,30 @@ function debian_based_setup {
 
     update-alternatives --install `which vim` vim `which nvim` 60
 
+    # DEPENDENCIES
+    apt-get --yes install nodejs
+    apt-get --yes install npm
+}
+
+function configure {
     # Install VimPlug plugin manager
     curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+    # Copy NeoVim configuration files to $HOME/.config/nvim/
+    mkdir -p $HOME/.config/nvim
+    cp -v ./neovim/config/* $HOME/.config/nvim/
+
+    # Run plugin instalation
+    echo "Installing plugins..."
+    vim +'PlugInstall --sync' +qall &> /dev/null
 }
+
+export -f configure
 
 if [ "$DIST" = "Ubuntu" ]; then
     debian_based_setup
 fi
 
-# Copy NeoVim configuration files to $HOME/.config/nvim/
-mkdir -p $HOME/.config/nvim
-cp -v ./neovim/config/* $HOME/.config/nvim/
-
-# Run plugin instalation
-vim +'PlugInstall --sync' +qall &> /dev/null
+su $LOGGED_USER -c "bash -c configure"
+exit 0
