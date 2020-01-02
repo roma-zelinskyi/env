@@ -14,3 +14,4 @@ call plug#end()
 
 source ~/.config/nvim/line.vim
 source ~/.config/nvim/general.vim
+source ~/.config/nvim/plugged.vim
