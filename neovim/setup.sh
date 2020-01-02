@@ -8,7 +8,7 @@
 #===================================================================================
 
 # Installation for Debian based OS using apt-get package manager
-function debian_based_setup {
+function debian_based_installation {
     # NeoVim installation step
     apt-get install --yes software-properties-common
 
@@ -27,7 +27,7 @@ function debian_based_setup {
     # DEPENDENCIES
     apt-get --yes install nodejs
     apt-get --yes install npm
-    apt-get install fonts-powerline
+    apt-get install --yes fonts-powerline
 }
 
 function configure {
@@ -47,7 +47,7 @@ function configure {
 export -f configure
 
 if [ "$DIST" = "Ubuntu" ]; then
-    debian_based_setup
+    debian_based_installation
 fi
 
 su $LOGGED_USER -c "bash -c configure"
