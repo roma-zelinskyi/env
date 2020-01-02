@@ -27,6 +27,7 @@ function debian_based_setup {
     # DEPENDENCIES
     apt-get --yes install nodejs
     apt-get --yes install npm
+    apt-get install fonts-powerline
 }
 
 function configure {
