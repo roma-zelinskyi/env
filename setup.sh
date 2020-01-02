@@ -52,3 +52,9 @@ if [ "$DIST" = "Ubuntu" ]; then
 fi
 
 ./neovim/setup.sh
+echo -e "neovim setup: Done!\n\n"
+
+./clang-tools/setup.sh
+echo -e "clang-tools setup: Done!\n\n"
+
+exit 0
