@@ -42,6 +42,10 @@ function configure {
     # Run plugin instalation
     echo "Installing plugins..."
     vim +'PlugInstall --sync' +qall &> /dev/null
+
+    # Copy coc snippets
+    mkdir -p $HOME/.config/coc/ultisnips/
+    cp -v ./neovim/snippets/* $HOME/.config/coc/ultisnips/
 }
 
 export -f configure
