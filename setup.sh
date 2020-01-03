@@ -57,4 +57,7 @@ echo -e "neovim setup: Done!\n\n"
 ./clang-tools/setup.sh
 echo -e "clang-tools setup: Done!\n\n"
 
+./home/setup.sh
+echo -e "home setup: Done!\n\n"
+
 exit 0
