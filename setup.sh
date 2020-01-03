@@ -51,13 +51,19 @@ if [ "$DIST" = "Ubuntu" ]; then
     apt-get install --yes curl
 fi
 
-./neovim/setup.sh
-echo -e "neovim setup: Done!\n\n"
+pushd neovim
+./setup.sh
+echo -e "neovim setup: Done!\n"
+popd
 
-./clang-tools/setup.sh
-echo -e "clang-tools setup: Done!\n\n"
+pushd clang-tools
+./setup.sh
+echo -e "clang-tools setup: Done!\n"
+popd
 
-./home/setup.sh
-echo -e "home setup: Done!\n\n"
+pushd home
+./setup.sh
+echo -e "home setup: Done!\n"
+popd
 
 exit 0

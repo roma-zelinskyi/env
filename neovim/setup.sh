@@ -41,7 +41,7 @@ function configure {
     fi
 
     # Copy NeoVim init.vim configuration file with defined plugins
-    cp -v ./neovim/config/init.vim $NVIM_CFG_DIR
+    cp -v ./config/init.vim $NVIM_CFG_DIR
     # Run plugin instalation
     echo "Installing NeoVim plugins..."
     echo -e "[======]\n"
@@ -55,17 +55,17 @@ function configure {
 
     # Copy rest of *.vim files that contains general, line appearance
     # and plugins configuration.
-    cp -v ./neovim/config/general.vim $NVIM_CFG_DIR
+    cp -v ./config/general.vim $NVIM_CFG_DIR
     echo "source ~/.config/nvim/general.vim" >> ~/.config/nvim/init.vim
-    cp -v ./neovim/config/line.vim $NVIM_CFG_DIR
+    cp -v ./config/line.vim $NVIM_CFG_DIR
     echo "source ~/.config/nvim/line.vim" >> ~/.config/nvim/init.vim
-    cp -v ./neovim/config/plugged.vim $NVIM_CFG_DIR
+    cp -v ./config/plugged.vim $NVIM_CFG_DIR
     echo "source ~/.config/nvim/plugged.vim" >> ~/.config/nvim/init.vim
-    cp -v ./neovim/config/coc-settings.json $NVIM_CFG_DIR
+    cp -v ./config/coc-settings.json $NVIM_CFG_DIR
 
     # Copy coc snippets
     mkdir -p $HOME/.config/coc/ultisnips/
-    cp -v ./neovim/snippets/* $HOME/.config/coc/ultisnips/
+    cp -v ./snippets/* $HOME/.config/coc/ultisnips/
 }
 
 export -f configure

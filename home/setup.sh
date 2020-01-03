@@ -19,4 +19,4 @@ git config --global user.name "$GIT_NAME"
 git config --global user.email "$GIT_EMAIL"
 git config --global github.user "$GIT_USER"
 
-cat ./home/config/.gitconfig >> ~/.gitconfig
+cat ./config/.gitconfig >> ~/.gitconfig

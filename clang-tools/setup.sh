@@ -15,11 +15,11 @@ function debian_based_installation {
 
 function configure {
     # Copy configuration file to HOME directory
-    cp -v ./clang-tools/config/.clang-format $HOME
+    cp -v ./config/.clang-format $HOME
 
     # Copy configuration file for Vim and NeoVim that will call
     # clang-format on source file for each save cmd.
-    cp -v ./clang-tools/config/format.vim $HOME/.config/nvim/
+    cp -v ./config/format.vim $HOME/.config/nvim/
 
     echo "source ~/.config/nvim/format.vim" >> ~/.config/nvim/init.vim
 }
