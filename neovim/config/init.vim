@@ -12,6 +12,3 @@ Plug 'bfrg/vim-cpp-modern'
 " All plugins need to be declared here
 call plug#end()
 
-source ~/.config/nvim/line.vim
-source ~/.config/nvim/general.vim
-source ~/.config/nvim/plugged.vim
