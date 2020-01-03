@@ -43,7 +43,14 @@ function configure {
     # Copy NeoVim init.vim configuration file with defined plugins
     cp -v ./neovim/config/init.vim $NVIM_CFG_DIR
     # Run plugin instalation
-    echo "Installing plugins..."
+    echo "Installing NeoVim plugins..."
+    echo -e "[======]\n"
+    echo "ctrlp.vim: Installing..."
+    echo "vim-airline: Installing..."
+    echo "vim-airline-themes: Installing..."
+    echo "vim-solarized8: Installing..."
+    echo "vim-cpp-modern: Installing..."
+    echo "coc.vim: Installing..."
     vim +'PlugInstall --sync' +qall &> /dev/null
 
     # Copy rest of *.vim files that contains general, line appearance
