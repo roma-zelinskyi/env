@@ -7,6 +7,10 @@
 ## bash_version  : 4.4.20(1)-release
 #===================================================================================
 
+if [ -z ${LOGGED_USER+x} ]; then
+    source ../current-env.sh
+fi
+
 function configure {
     GIT_NAME=`git config --global user.name`
     GIT_EMAIL=`git config --global user.email`

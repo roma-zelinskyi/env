@@ -7,6 +7,10 @@
 ## bash_version  : 4.4.20(1)-release
 #===================================================================================
 
+if [ -z ${LOGGED_USER+x} ]; then
+    source ../current-env.sh
+fi
+
 # Installation for Debian based OS using apt-get package manager
 function debian_based_installation {
     # NeoVim installation step
