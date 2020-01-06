@@ -19,4 +19,16 @@ git config --global user.name "$GIT_NAME"
 git config --global user.email "$GIT_EMAIL"
 git config --global github.user "$GIT_USER"
 
-cat ./config/.gitconfig >> ~/.gitconfig
+function configure {
+    # extend gitconfig with prefered aliases
+    cat ./config/.gitconfig >> ~/.gitconfig
+
+    cp -v ./config/.bashrc $HOME/
+    cp -v ./config/.bash_aliases $HOME/
+}
+
+export -f configure
+
+# Run configuration step under logged user.
+su $LOGGED_USER -c "bash -c configure"
+exit 0
