@@ -7,19 +7,19 @@
 ## bash_version  : 4.4.20(1)-release
 #===================================================================================
 
-GIT_NAME=`git config --global user.name`
-GIT_EMAIL=`git config --global user.email`
-GIT_USER=`git config --global github.user`
-
-GIT_NAME=${GIT_NAME:-Roman Zelinskyi}
-GIT_EMAIL=${GIT_EMAIL:-lord.zelinskyi@gmail.com}
-GIT_USER=${GIT_USER:-roma-zelinskyi}
-
-git config --global user.name "$GIT_NAME"
-git config --global user.email "$GIT_EMAIL"
-git config --global github.user "$GIT_USER"
-
 function configure {
+    GIT_NAME=`git config --global user.name`
+    GIT_EMAIL=`git config --global user.email`
+    GIT_USER=`git config --global github.user`
+    
+    GIT_NAME=${GIT_NAME:-Roman Zelinskyi}
+    GIT_EMAIL=${GIT_EMAIL:-lord.zelinskyi@gmail.com}
+    GIT_USER=${GIT_USER:-roma-zelinskyi}
+
+    git config --global user.name "$GIT_NAME"
+    git config --global user.email "$GIT_EMAIL"
+    git config --global github.user "$GIT_USER"
+
     # extend gitconfig with prefered aliases
     cat ./config/.gitconfig >> ~/.gitconfig
 
