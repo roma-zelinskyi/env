@@ -39,3 +39,9 @@ set smartcase
 set hlsearch    " highlight searches
 set incsearch   " search while typing
 set wrapscan    " wrap-around when searching
+
+" move around in insert mode 
+inoremap <C-k> <C-o>gk
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+inoremap <C-j> <C-o>gj
