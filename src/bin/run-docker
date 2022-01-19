@@ -1,0 +1,14 @@
+#!/bin/bash
+
+container_name=$(basename "$PWD")
+
+if docker ps --format '{{.Names}}' | grep -Eq "^${container_name}\$";
+then
+  docker attach $container_name
+elif docker ps -a --format '{{.Names}}' | grep -Eq "^${container_name}\$";
+  then
+    docker start $container_name
+    docker attach $container_name
+else
+  docker run -ti --memory=10g -w="/$container_name" -v $(pwd):/$container_name --name $container_name <image>
+fi
