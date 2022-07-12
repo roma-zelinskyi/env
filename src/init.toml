@@ -34,32 +34,33 @@
   auto_completion_tab_key_behavior = "smart"
 
 [[layers]]
-  name = 'shell'
-  default_position = 'top'
-  default_height = 30
+    name = 'shell'
+    default_position = 'top'
+    default_height = 30
 
 [[layers]]
-  name = "format"
-  format_on_save = false
+    name = "format"
+    format_on_save = false
 
 # C++
 [[layers]]
-  name = "lang#c"
-  format_on_save = false
-  [layer.clang_std]
+    name = "lang#c"
+    format_on_save = false
+
+[layer.clang_std]
     cpp = "c++20"
-  enable_clang_syntax_highlight = true
+    enable_clang_syntax_highlight = true
 
 [[layers]]
   name = "checkers"
   enable = true
 
 [[layers]]
-  name = "lang#cmake"
-  enable_typeinfo = true
-  format_on_save = false
+    name = "lang#cmake"
+    enable_typeinfo = true
+    format_on_save = false
 
-  [[layers]]
+[[layers]]
     name = "core#statusline"
 
 [[custom_plugins]]
@@ -67,11 +68,10 @@
     merged = false
 
 [[custom_plugins]]
-    repo = "junegunn/fzf"
+    repo = "nvim-lua/plenary.nvim"
     merged = false
-
 [[custom_plugins]]
-    repo = "junegunn/fzf.vim"
+    repo = "nvim-telescope/telescope.nvim"
     merged = false
 
 # Nerdtree
@@ -80,6 +80,10 @@
     merged = false
 [[custom_plugins]]
     repo = "Xuyuanp/nerdtree-git-plugin"
+    merged = false
+
+[[custom_plugins]]
+    repo = "mustache/vim-mustache-handlebars"
     merged = false
 
 [[layers]]
