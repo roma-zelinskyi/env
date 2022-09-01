@@ -2,13 +2,13 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/rzelins/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="minimal"
+ZSH_THEME="my"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -71,14 +71,12 @@ ZSH_THEME="minimal"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-source $ZSH/oh-my-zsh.sh
-source $ZSH/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 plugins=(
     git
     zsh-vi-mode
-    zsh-autosuggestions
 )
+
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -106,10 +104,15 @@ plugins=(
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-bindkey '^[[Z' autosuggest-accept
+bindkey -v
+
+alias t="tree --du -h -L"
+
+alias scp='noglob scp'
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 export PATH="$PATH:/usr/bin:$HOME/Library/Python/3.9/bin:/$HOME/bin"
-
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 export REPO="$HOME/work/mbient/repo"
+export CLICOLOR=1
