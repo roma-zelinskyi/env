@@ -114,5 +114,5 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 export PATH="$PATH:/usr/bin:$HOME/Library/Python/3.9/bin:/$HOME/bin"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-export REPO="$HOME/work/mbient/repo"
+export REPO=""
 export CLICOLOR=1
