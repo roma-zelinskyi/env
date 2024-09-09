@@ -13,4 +13,4 @@ vcs_status() {
   fi
 }
 
-PROMPT='  %F{cyan}%3~%f $(vcs_status)%F{green}%f »%b '
+PROMPT='  %F{cyan}%3~%f $(vcs_status)%F{green}%f »%b '

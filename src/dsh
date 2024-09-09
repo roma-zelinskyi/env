@@ -1,0 +1,46 @@
+#!/bin/bash
+
+if [[ "$1" ]]; then
+    image_name="$1"
+else
+    image_name="ota_manager:latest"
+fi
+
+if git rev-parse --is-inside-work-tree; then 
+    project_dir=$(git rev-parse --show-toplevel)
+else
+    project_dir=$(pwd)
+fi
+
+container_name=$(basename "$project_dir")
+
+run_container () {
+    echo "Creating container from image: $image_name, with name: $container_name"
+    echo "Mounting $project_dir:$project_dir"
+
+    docker run \
+        -it \
+        --privileged \
+        --shm-size=8g \
+        --net host \
+        -p 2222:22 \
+        -e WORKDIR="$project_dir" \
+        -e CARGO_TARGET_DIR="$project_dir"/target_docker \
+        -v "$project_dir":"$project_dir" \
+        --name "$container_name" \
+        --workdir="$project_dir" \
+        "$image_name" \
+        zsh
+}
+
+
+if docker ps --format '{{.Names}}' | grep -Eq "^${container_name}\$"; then
+    echo "Container is started, exec zsh on container $container_name"
+    docker exec -it "$container_name" zsh
+elif docker ps -a --format '{{.Names}}' | grep -Eq "^${container_name}\$"; then
+    echo "Starting contianer $container_name"
+    docker start -i "$container_name"
+else
+    echo "Running new container "
+    run_container "$image_name" "$container_name"
+fi
