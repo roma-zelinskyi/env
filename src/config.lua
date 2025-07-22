@@ -95,6 +95,13 @@ lvim.keys.normal_mode["<leader>9"] = ":BufferLineGoToBuffer 9<CR>"
 lvim.keys.insert_mode["qq"] = "<ESC>"
 lvim.keys.normal_mode["<S-q>"] = "<cmd>BufferKill<CR>"
 
+lvim.lsp.buffer_mappings.normal_mode['gd'] = { "<cmd>:Telescope lsp_definitions<CR>" }
+lvim.lsp.buffer_mappings.normal_mode['gr'] = { "<cmd>:Telescope lsp_references<CR>" }
+lvim.lsp.buffer_mappings.normal_mode['gi'] = { "<cmd>:Telescope lsp_incoming_calls<CR>" }
+lvim.lsp.buffer_mappings.normal_mode['go'] = { "<cmd>:Telescope lsp_outgoing_calls<CR>" }
+lvim.lsp.buffer_mappings.normal_mode['gI'] = { "<cmd>:Telescope lsp_implementations<CR>" }
+
+
 -- Telescope
 lvim.builtin.which_key.mappings["T"] = { "<cmd>Telescope<CR>", "Telescope" }
 lvim.builtin.which_key.mappings["s"] = {
